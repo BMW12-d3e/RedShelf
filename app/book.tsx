@@ -13,7 +13,7 @@ export default function BookScreen() {
         <View>
           <Link className="m-2" href='/create-book'>
             <Button>
-              <BookPlus />
+              <BookPlus color={'white'} />
               <Text>
                 Hinzufügen
               </Text>
