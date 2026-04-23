@@ -62,6 +62,20 @@ export function SignUpForm() {
                 onSubmitEditing={onSubmit}
               />
             </View>
+             <View className="gap-1.5">
+                          <Label htmlFor="geburtsdatum">Geburtsdatum</Label>
+                          <Date></Date>
+                          <Input
+                            id="geburtsdatum"
+                            placeholder="19.04.1990"
+                            keyboardType="numeric"
+                            autoComplete="birthdate-full"
+                            // autoCapitalize="words"
+                            // onSubmitEditing={onEmailSubmitEditing}
+                            returnKeyType="next"
+                            submitBehavior="submit"
+                          />
+                        </View>
             <Button className="w-full" onPress={onSubmit}>
               <Text>Continue</Text>
             </Button>
