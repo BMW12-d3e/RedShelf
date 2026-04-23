@@ -77,6 +77,23 @@ export function SignUpForm() {
                 onSubmitEditing={onSubmit}
               />
             </View>
+            <View>
+              <Pressable
+                onPress={() => setShow(true)}
+                className="border rounded-xl px-4 py-3"
+              >
+                <Text>{formatDate(date)}</Text>
+              </Pressable>
+
+              {show && (
+                <DateTimePicker
+                  value={date || new Date()}
+                  mode="date"
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+            </View>
             <Button className="w-full" onPress={onSubmit}>
               <Text>Continue</Text>
             </Button>
