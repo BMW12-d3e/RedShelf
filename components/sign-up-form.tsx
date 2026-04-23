@@ -12,8 +12,10 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import * as React from 'react';
-import { Pressable, TextInput, View } from 'react-native';
+import { Platform, Pressable, TextInput, View } from 'react-native';
 import { Link } from 'expo-router';
+import { useState } from 'react';
+import DateTimePicker from "@react-native-community/datetimepicker"
 
 export function SignUpForm() {
   const passwordInputRef = React.useRef<TextInput>(null);
@@ -24,6 +26,19 @@ export function SignUpForm() {
 
   function onSubmit() {
     // TODO: Submit form and navigate to protected screen if successful
+  }
+
+  const [date, setDate] = useState<Date | null>(null)
+  const [show, setShow] = useState(false)
+
+  const onChange = (event: any, selectedDate?: Date) => {
+    setShow(Platform.OS === "ios") // keep open on iOS
+    if (selectedDate) setDate(selectedDate)
+  }
+
+  const formatDate = (d: Date | null) => {
+    if (!d) return "DD/MM/YYYY"
+    return d.toLocaleDateString("en-GB") // 23/04/2026
   }
 
   return (
@@ -62,17 +77,48 @@ export function SignUpForm() {
                 onSubmitEditing={onSubmit}
               />
             </View>
+            {/* <View className="gap-1.5">
+              <Label htmlFor="geburtsdatum">Geburtsdatum</Label>
+              <Input
+                id="geburtsdatum"
+                placeholder="19.04.1990"
+                keyboardType="numeric"
+                autoComplete="birthdate-full"
+                // autoCapitalize="words"
+                // onSubmitEditing={onEmailSubmitEditing}
+                returnKeyType="next"
+                // onChange={(text: string) => { return handleDateChange(text.replace(); }}
+                submitBehavior="submit"
+              />
+            </View> */}
+            <View>
+              <Pressable
+                onPress={() => setShow(true)}
+                className="border rounded-xl px-4 py-3"
+              >
+                <Text>{formatDate(date)}</Text>
+              </Pressable>
+
+              {show && (
+                <DateTimePicker
+                  value={date || new Date()}
+                  mode="date"
+                  display="default"
+                  onChange={onChange}
+                />
+              )}
+            </View>
             <Button className="w-full" onPress={onSubmit}>
               <Text>Continue</Text>
             </Button>
           </View>
           <Text className="text-center text-sm">
             Already have an account?{' '}
-          <Link href = 'login'>
-                      <Text className="font-bold underline">
-                      login
-                      </Text>
-                       </Link>
+            <Link href='/login'>
+              <Text className="font-bold underline">
+                login
+              </Text>
+            </Link>
           </Text>
           <View className="flex-row items-center">
             <Separator className="flex-1" />

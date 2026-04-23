@@ -1,11 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { Link, Stack } from 'expo-router';
-import { MoonStarIcon, StarIcon, SunIcon } from 'lucide-react-native';
-import { useColorScheme } from 'nativewind';
+import { Link } from 'expo-router';
 import * as React from 'react';
-import { Image, type ImageStyle, View } from 'react-native';
+import { View } from 'react-native';
 
 
 export default function Screen() {
@@ -13,21 +10,26 @@ export default function Screen() {
 
   return (
     <>
-<Link href = 'login'>
-<Button>
-<Text>
-login
-</Text>
-</Button>
- </Link>
+      <View>
 
- <Link href = 'signUp'>
- <Button>
- <Text>
- signUp
- </Text>
- </Button>
-  </Link>
+        <Link className="m-2" href='/login'>
+          <Button>
+            <Text>
+              login
+            </Text>
+          </Button>
+        </Link>
+      </View>
+
+      <View>
+        <Link className="m-2" href='/signUp'>
+          <Button>
+            <Text>
+              signUp
+            </Text>
+          </Button>
+        </Link>
+      </View>
     </>
   );
 }
