@@ -30,6 +30,16 @@ export default function Screen() {
           </Button>
         </Link>
       </View>
+
+      <View>
+              <Link className="m-2" href='/book'>
+                <Button>
+                  <Text>
+                    book
+                  </Text>
+                </Button>
+              </Link>
+            </View>
     </>
   );
 }
