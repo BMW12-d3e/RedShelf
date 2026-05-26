@@ -12,10 +12,8 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import * as React from 'react';
-import { Platform, Pressable, TextInput, View } from 'react-native';
+import { Pressable, TextInput, View } from 'react-native';
 import { Link } from 'expo-router';
-import { useState } from 'react';
-import DateTimePicker from "@react-native-community/datetimepicker"
 
 export function SignUpForm() {
   const passwordInputRef = React.useRef<TextInput>(null);
@@ -26,19 +24,6 @@ export function SignUpForm() {
 
   function onSubmit() {
     // TODO: Submit form and navigate to protected screen if successful
-  }
-
-  const [date, setDate] = useState<Date | null>(null)
-  const [show, setShow] = useState(false)
-
-  const onChange = (event: any, selectedDate?: Date) => {
-    setShow(Platform.OS === "ios") // keep open on iOS
-    if (selectedDate) setDate(selectedDate)
-  }
-
-  const formatDate = (d: Date | null) => {
-    if (!d) return "DD/MM/YYYY"
-    return d.toLocaleDateString("en-GB") // 23/04/2026
   }
 
   return (
@@ -52,6 +37,26 @@ export function SignUpForm() {
         </CardHeader>
         <CardContent className="gap-6">
           <View className="gap-6">
+            <View className="gap-1.5">
+              <Label htmlFor="vorname">Vorname</Label>
+              <Input
+                id="vorname"
+                placeholder="Max"
+                autoComplete="name"
+                returnKeyType="next"
+                submitBehavior="submit"
+              />
+            </View>
+            <View className="gap-1.5">
+              <Label htmlFor="nacname">Nachname</Label>
+              <Input
+                id="name"
+                placeholder="Mustermann"
+                autoComplete="name"
+                returnKeyType="next"
+                submitBehavior="submit"
+              />
+            </View>
             <View className="gap-1.5">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -76,23 +81,6 @@ export function SignUpForm() {
                 returnKeyType="send"
                 onSubmitEditing={onSubmit}
               />
-            </View>
-            <View>
-              <Pressable
-                onPress={() => setShow(true)}
-                className="border rounded-xl px-4 py-3"
-              >
-                <Text>{formatDate(date)}</Text>
-              </Pressable>
-
-              {show && (
-                <DateTimePicker
-                  value={date || new Date()}
-                  mode="date"
-                  display="default"
-                  onChange={onChange}
-                />
-              )}
             </View>
             <Button className="w-full" onPress={onSubmit}>
               <Text>Continue</Text>

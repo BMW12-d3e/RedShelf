@@ -72,18 +72,16 @@ export function SignInForm() {
                 onSubmitEditing={onSubmit}
               />
               <View className="gap-1.5">
-                            <Label htmlFor="email">Name</Label>
-                            <Input
-                              id="email"
-                              placeholder="Max Mustermann"
-                              keyboardType=""
-                              autoComplete=""
-                              autoCapitalize="none"
-                              onSubmitEditing={onEmailSubmitEditing}
-                              returnKeyType="next"
-                              submitBehavior="submit"
-                            />
-                          </View>
+                <Label htmlFor="email">Name</Label>
+                <Input
+                  id="email"
+                  placeholder="Max Mustermann"
+                  autoCapitalize="none"
+                  onSubmitEditing={onEmailSubmitEditing}
+                  returnKeyType="next"
+                  submitBehavior="submit"
+                />
+              </View>
 
             </View>
             <Button className="w-full" onPress={onSubmit}>
@@ -92,12 +90,12 @@ export function SignInForm() {
           </View>
           <Text className="text-center text-sm">
             Don&apos;t have an account?{' '}
-            <Link href = 'signUp'>
-            <Text className="font-bold underline">
-            signUp
-            </Text>
-             </Link>
-             </Text>
+            <Link href='signUp'>
+              <Text className="font-bold underline">
+                signUp
+              </Text>
+            </Link>
+          </Text>
           <View className="flex-row items-center">
             <Separator className="flex-1" />
             <Text className="text-muted-foreground px-4 text-sm">or</Text>
