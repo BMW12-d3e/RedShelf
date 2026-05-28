@@ -21,7 +21,7 @@ export default function App() {
       <Input style={styles.input} id="booktype" placeholder="Manga" onChangeText={setBookType} />
       <Label htmlFor="author">Autor</Label>
       <Input style={styles.input} id="author" placeholder="Riichiro Inagaki" onChangeText={setAuthor} />
-      <Button variant='' size='' onPress={()=> console.log('Buch wurde gespeichert')}><Text>Add</Text></Button>
+      {/* <Button variant='' size='' onPress={()=> console.log('Buch wurde gespeichert')}><Text>Add</Text></Button> */}
     </View>
   );
 }
