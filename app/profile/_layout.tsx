@@ -15,23 +15,23 @@ export default function bookLayout() {
                 // },
             }}>
             <Tabs.Screen
-                name="index"
+                name="Login"
                 options={{
-                    title: 'Bookshelf',
+                    title: 'Login',
                     tabBarIcon: ({ color, size }) => <Store color={color} size={size} />,
                 }}
             />
             <Tabs.Screen
-                name="shopping-cart"
+                name="Signup"
                 options={{
-                    title: 'Cart',
+                    title: 'Sign up',
                     tabBarIcon: ({ color, size }) => <ShoppingCart color={color} size={size} />,
                 }}
             />
             <Tabs.Screen
-                name="check-out"
+                name="Logout"
                 options={{
-                    title: 'Checkout',
+                    title: 'Logout',
                     tabBarIcon: ({ color, size }) => <BadgeCent color={color} size={size} />,
                 }}
             />

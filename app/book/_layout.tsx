@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs } from 'expo-router'
-import { BookPlus, Library, BookUser, User, Store } from 'lucide-react-native'
+import { BookPlus, Library, BookUser, Store } from 'lucide-react-native'
 
 export default function bookLayout() {
     return (
