@@ -9,7 +9,7 @@ export default function Screen() {
 
   return (
     <>
-      <Link href='/login'>
+      {/* <Link href='/profile/login'>
         <Button>
           <Text className='flex flex-row'>
             login
@@ -25,7 +25,7 @@ export default function Screen() {
             <LogOut /> 
           </Text>
         </Button>
-      </Link>
+      </Link> */}
       <Link href='/book'>
         <Button>
           <Text className='flex flex-row'>

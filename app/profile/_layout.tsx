@@ -7,13 +7,14 @@ export default function bookLayout() {
         <Tabs
             screenOptions={{
                 headerShown: false,
-                // tabBarActiveTintColor: colors.active,
-                // tabBarInactiveTintColor: colors.inactive,
-                // tabBarStyle: {
-                //     backgroundColor: colors.background,
-                //     borderTopColor: colors.border,
-                // },
             }}>
+            <Tabs.Screen
+                name="index"
+                options={{
+                    title: 'profile',
+                    tabBarIcon: ({ color, size }) => <Store color={color} size={size} />,
+                }}
+            />
             <Tabs.Screen
                 name="Login"
                 options={{
@@ -26,13 +27,6 @@ export default function bookLayout() {
                 options={{
                     title: 'Sign up',
                     tabBarIcon: ({ color, size }) => <ShoppingCart color={color} size={size} />,
-                }}
-            />
-            <Tabs.Screen
-                name="Logout"
-                options={{
-                    title: 'Logout',
-                    tabBarIcon: ({ color, size }) => <BadgeCent color={color} size={size} />,
                 }}
             />
         </Tabs>
